@@ -1,0 +1,18 @@
+.root {
+  @apply overflow-hidden rounded-md border;
+}
+
+.header {
+  @apply border-b bg-gray-100 px-4 py-2;
+}
+
+.title {
+  @apply text-lg font-bold text-black;
+}
+
+.body {
+}
+
+.bodyEmpty {
+  @apply px-4 py-2;
+}

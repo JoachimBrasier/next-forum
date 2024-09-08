@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'flag-icons/css/flag-icons.min.css';
+
+@layer layout {
+  .maxScreenSize {
+    @apply mx-auto max-w-screen-2xl px-4;
+  }
+}

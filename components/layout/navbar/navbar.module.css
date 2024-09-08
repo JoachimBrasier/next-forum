@@ -1,0 +1,11 @@
+.root {
+  @apply border-b py-2;
+}
+
+.container {
+  @apply flex flex-row flex-nowrap items-center gap-2;
+}
+
+.logoContainer {
+  @apply mr-auto;
+}

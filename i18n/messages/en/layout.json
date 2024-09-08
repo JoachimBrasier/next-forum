@@ -1,0 +1,70 @@
+{
+  "navbar": {
+    "authModal": {
+      "openButton": {
+        "text": "Sign in",
+        "description": "Open auth modal"
+      },
+      "closeButton": {
+        "description": "Close auth modal"
+      },
+      "title": "Sign in",
+      "description": "Access your account to stay updated, engage with threads, and connect with fellow members.",
+      "authButtons": {
+        "google": {
+          "text": "Google",
+          "description": "Sign in with Google"
+        }
+      }
+    },
+    "search": {
+      "input": {
+        "placeholder": "Quick search..."
+      }
+    },
+    "localesMenu": {
+      "openButton": {
+        "description": "Open language selection menu"
+      },
+      "localeButton": {
+        "description": "Change language to {locale}"
+      }
+    },
+    "themesMenu": {
+      "openButton": {
+        "description": "Open themes menu"
+      },
+      "menu": {
+        "light": {
+          "text": "Light",
+          "description": "Change theme to light"
+        },
+        "dark": {
+          "text": "Dark",
+          "description": "Change theme to dark"
+        },
+        "system": {
+          "text": "System",
+          "description": "Change theme to system"
+        }
+      }
+    },
+    "userMenu": {
+      "openButton": {
+        "text": "My account",
+        "description": "Open user menu"
+      },
+      "menu": {
+        "admin": {
+          "text": "Admin panel",
+          "description": "Go to admin panel"
+        },
+        "signOut": {
+          "text": "Sign out",
+          "description": "Sign out"
+        }
+      }
+    }
+  },
+  "footer": {}
+}

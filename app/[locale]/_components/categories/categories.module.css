@@ -1,0 +1,11 @@
+.root {
+  @apply divide-y divide-solid;
+}
+
+.item {
+  @apply px-4 py-2;
+}
+
+.title {
+  @apply inline-block cursor-pointer text-sm hover:underline;
+}

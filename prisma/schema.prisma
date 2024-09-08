@@ -1,0 +1,111 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime? @map("email_verified")
+  image         String?
+  accounts      Account[]
+  topics        Topic[]
+  comments      Comment[]
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+model Account {
+  id                String   @id @default(cuid())
+  userId            String   @map("user_id")
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type              String
+  provider          String
+  providerAccountId String   @map("provider_account_id")
+  refresh_token     String?  @db.Text
+  access_token      String?  @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?  @db.Text
+  session_state     String?
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verificationtokens")
+}
+
+model Section {
+  id         String     @id @default(cuid())
+  name       String
+  categories Category[]
+  created_at DateTime   @default(now())
+  updated_at DateTime   @updatedAt
+
+  @@map("sections")
+}
+
+model Category {
+  id                 String     @id @default(cuid())
+  name               String
+  slug               String
+  topics             Topic[]
+  sub_categories     Category[] @relation("nestedCategories")
+  parent_category    Category?  @relation("nestedCategories", fields: [parent_category_id], references: [id], onDelete: Cascade)
+  parent_category_id String?
+  section_id         String?
+  section            Section?   @relation(fields: [section_id], references: [id], onDelete: SetNull)
+  created_at         DateTime   @default(now())
+  updated_at         DateTime   @updatedAt
+
+  @@map("categories")
+}
+
+model Topic {
+  id          String    @id @default(cuid())
+  title       String
+  category_id String
+  category    Category  @relation(fields: [category_id], references: [id], onDelete: Cascade)
+  user_id     String?
+  User        User?     @relation(fields: [user_id], references: [id], onDelete: SetNull)
+  comments    Comment[]
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+
+  @@map("topics")
+}
+
+model Comment {
+  id         String   @id @default(cuid())
+  topic_id   String
+  Topic      Topic    @relation(fields: [topic_id], references: [id], onDelete: Cascade)
+  user_id    String?
+  User       User?    @relation(fields: [user_id], references: [id], onDelete: SetNull)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("comments")
+}

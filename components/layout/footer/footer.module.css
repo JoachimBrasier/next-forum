@@ -1,0 +1,6 @@
+.root {
+  @apply border-t py-2;
+}
+
+.container {
+}

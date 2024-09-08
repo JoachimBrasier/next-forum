@@ -1,0 +1,34 @@
+{
+  "navbar": {
+    "authModal": {
+      "openButton": {
+        "text": "Connexion",
+        "description": "Ouvrir le modal de connexion"
+      },
+      "closeButton": {
+        "description": "Fermer le modal de connexion"
+      },
+      "title": "Connexion",
+      "description": "Accédez à votre compte pour rester à jour, participer aux discussions et vous connecter avec les autres membres.",
+      "authButtons": {
+        "google": {
+          "text": "Google",
+          "description": "Connexion avec Google"
+        }
+      }
+    },
+    "userMenu": {
+      "openButton": {
+        "text": "Mon compte",
+        "description": "Ouvrir le menu utilisateur"
+      },
+      "menu": {
+        "signOut": {
+          "text": "Déconnexion",
+          "description": "Déconnexion"
+        }
+      }
+    }
+  },
+  "footer": {}
+}
