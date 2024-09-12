@@ -71,7 +71,7 @@ model Section {
 model Category {
   id                 String     @id @default(cuid())
   name               String
-  slug               String
+  slug               String     @unique
   topics             Topic[]
   sub_categories     Category[] @relation("nestedCategories")
   parent_category    Category?  @relation("nestedCategories", fields: [parent_category_id], references: [id], onDelete: Cascade)
@@ -87,10 +87,11 @@ model Category {
 model Topic {
   id          String    @id @default(cuid())
   title       String
+  slug        String    @unique
   category_id String
   category    Category  @relation(fields: [category_id], references: [id], onDelete: Cascade)
   user_id     String?
-  User        User?     @relation(fields: [user_id], references: [id], onDelete: SetNull)
+  user        User?     @relation(fields: [user_id], references: [id], onDelete: SetNull)
   comments    Comment[]
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
@@ -103,7 +104,7 @@ model Comment {
   topic_id   String
   Topic      Topic    @relation(fields: [topic_id], references: [id], onDelete: Cascade)
   user_id    String?
-  User       User?    @relation(fields: [user_id], references: [id], onDelete: SetNull)
+  user       User?    @relation(fields: [user_id], references: [id], onDelete: SetNull)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
