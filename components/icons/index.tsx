@@ -1,1 +1,2 @@
-export { default as GoogleIcon } from './Google';
+export { default as GoogleIcon } from './google';
+export { default as SpinnerIcon } from './spinner';
