@@ -20,6 +20,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     select: { name: true },
   });
 
+  if (!category) {
+    return notFound();
+  }
+
   return {
     title: category?.name,
   };
@@ -48,7 +52,7 @@ export default async function Category({ params }: Props) {
       <div className="flex flex-row flex-nowrap mb-4">
         <Button
           link
-          href={`/category/${category.slug}/new`}
+          href={`/category/${category.slug}/new-topic`}
           variant="primary"
           className="ml-auto"
           aria-label={t('category.newTopicButton.description')}

@@ -14,6 +14,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     select: { title: true },
   });
 
+  if (!topic) {
+    return notFound();
+  }
+
   return {
     title: topic?.title,
   };
@@ -37,13 +41,7 @@ export default async function Category({ params }: { params: { slug: string } })
       </div>
       <div className="flex flex-row flex-nowrap">
         <div className="mr-4">
-          <Image
-            width={40}
-            height={40}
-            className="rounded-full"
-            src={topic?.user?.image}
-            alt={topic?.user?.name?.charAt(0).toUpperCase()}
-          />
+          <Image width={40} height={40} className="rounded-full" src={topic?.user?.image} alt={topic?.user?.name?.charAt(0).toUpperCase()} />
         </div>
         <div>
           <span className="h-10 flex items-center">
