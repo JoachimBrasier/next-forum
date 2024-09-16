@@ -1,23 +1,34 @@
-import React from 'react';
+import { LinkProps } from 'next/link';
+
+import React, { HTMLProps } from 'react';
 
 import clsx from 'clsx';
 
 import { SpinnerIcon } from '@/components/icons';
 
+import { Link } from '@/i18n/routing';
+
 import s from './button.module.css';
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+type ButtonLink = boolean;
+
+type ButtonProps<T extends ButtonLink> = {
   children?: React.ReactNode;
   variant?: 'default' | 'primary' | 'success' | 'warning' | 'danger';
   icon?: React.ReactElement;
   reversed?: boolean;
   size?: 'small' | 'default' | 'large';
   loading?: boolean;
-}
+  link?: T;
+} & (T extends true ? LinkProps & HTMLProps<HTMLAnchorElement> : React.ButtonHTMLAttributes<HTMLButtonElement>);
 
-export default function Button({ children, variant, icon, size, reversed, loading, ...props }: Props) {
+// ? : conditional type not working
+// TODO : fix conditional type
+export default function Button<T extends ButtonLink>({ link, children, variant, icon, size, reversed, loading, ...props }: ButtonProps<T>) {
+  const Component = link ? Link : 'button';
+
   return (
-    <button
+    <Component
       {...props}
       className={clsx(
         s.root,
@@ -36,6 +47,6 @@ export default function Button({ children, variant, icon, size, reversed, loadin
     >
       {loading ? <SpinnerIcon className={s.loadingIcon} /> : icon}
       {children}
-    </button>
+    </Component>
   );
 }
