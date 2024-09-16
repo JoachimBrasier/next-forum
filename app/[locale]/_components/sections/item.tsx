@@ -3,9 +3,8 @@ import { memo } from 'react';
 import { Section } from '@prisma/client';
 import clsx from 'clsx';
 
+import { Categories } from '@/components/common';
 import { Empty } from '@/components/ui';
-
-import Categories from '../categories';
 
 import s from './item.module.css';
 

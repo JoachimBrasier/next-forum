@@ -1,4 +1,6 @@
-import { Categories, Sections } from './_components';
+import { Categories } from '@/components/common';
+
+import { Sections } from './_components';
 
 const VIEW_MODE: 'SECTIONS' | 'TOPICS' | 'CATEGORIES' = 'SECTIONS';
 

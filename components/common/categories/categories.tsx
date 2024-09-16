@@ -4,10 +4,15 @@ import { Link } from '@/i18n/routing';
 
 import s from './categories.module.css';
 
-export default async function Categories({ section }: { section?: string }) {
+type Props = {
+  parentCategory?: string;
+  section?: string;
+};
+
+export default async function Categories({ parentCategory, section }: Props) {
   const categories = await prisma.category.findMany({
     where: {
-      parent_category_id: null,
+      parent_category_id: parentCategory ?? null,
       ...(!!section ? { section_id: section } : {}),
     },
     include: {
@@ -22,7 +27,7 @@ export default async function Categories({ section }: { section?: string }) {
       {categories.map((category) => (
         <div key={category.id} className={s.item}>
           <div>
-            <Link href="#" className={s.title}>
+            <Link href={`/category/${category.slug}`} className={s.title}>
               {category.name}
             </Link>
           </div>
