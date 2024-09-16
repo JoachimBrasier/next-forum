@@ -1,6 +1,21 @@
+import { Metadata } from 'next';
+
 import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
 import { Link } from '@/i18n/routing';
+
+type Props = {
+  params: { locale: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const t = await getTranslations({ locale: params.locale, namespace: 'NotFound' });
+
+  return {
+    title: t('title'),
+  };
+}
 
 export default function NotFound() {
   const t = useTranslations('NotFound');
