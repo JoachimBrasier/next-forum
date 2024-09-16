@@ -4,6 +4,7 @@ export const files: fileItem[] = [
   { key: 'Layout', file: 'layout' },
   { key: 'Default', file: 'default' },
   { key: 'NotFound', file: 'not-found' },
+  { key: 'Forum', file: 'forum' },
 ];
 
 export type localeItem = { locale: string; label: string; flag: string };
