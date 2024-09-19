@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Category({ params }: { params: { slug: string } }) {
+export default async function Category({ params }: Props) {
   const topic = await prisma.topic.findUnique({
     where: { id: params.id, slug: params.slug },
     include: { comments: true, user: true },
