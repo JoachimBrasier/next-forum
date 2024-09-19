@@ -73,6 +73,7 @@ model Category {
   name               String
   slug               String     @unique
   topics             Topic[]
+  tags               Tag[]
   sub_categories     Category[] @relation("nestedCategories")
   parent_category    Category?  @relation("nestedCategories", fields: [parent_category_id], references: [id], onDelete: Cascade)
   parent_category_id String?
@@ -84,10 +85,25 @@ model Category {
   @@map("categories")
 }
 
+model Tag {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  topics      Topic[]
+  category_id String
+  category    Category @relation(fields: [category_id], references: [id], onDelete: Cascade)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  @@map("tags")
+}
+
 model Topic {
   id          String    @id @default(cuid())
   title       String
   slug        String    @unique
+  tagId       String?
+  tag         Tag?      @relation(fields: [tagId], references: [id], onDelete: SetNull)
   category_id String
   category    Category  @relation(fields: [category_id], references: [id], onDelete: Cascade)
   user_id     String?
