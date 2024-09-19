@@ -28,7 +28,6 @@
     "rc-table": "^7.47.5",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7.53.0",
     "slugify": "^1.6.6",
     "sonner": "^1.5.0",
     "use-debounce": "^10.0.3",
