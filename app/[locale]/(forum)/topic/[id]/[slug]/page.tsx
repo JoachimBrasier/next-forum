@@ -5,12 +5,15 @@ import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 
 type Props = {
-  params: { slug: string };
+  params: {
+    id: string;
+    slug: string;
+  };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const topic = await prisma.topic.findUnique({
-    where: { slug: params.slug },
+    where: { id: params.id, slug: params.slug },
     select: { title: true },
   });
 
@@ -25,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Category({ params }: { params: { slug: string } }) {
   const topic = await prisma.topic.findUnique({
-    where: { slug: params.slug },
+    where: { id: params.id, slug: params.slug },
     include: { comments: true, user: true },
   });
 
