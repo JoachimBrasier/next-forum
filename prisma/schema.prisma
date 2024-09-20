@@ -102,8 +102,8 @@ model Topic {
   id          String    @id @default(cuid())
   title       String
   slug        String    @unique
-  tagId       String?
-  tag         Tag?      @relation(fields: [tagId], references: [id], onDelete: SetNull)
+  tag_id      String?
+  tag         Tag?      @relation(fields: [tag_id], references: [id], onDelete: SetNull)
   category_id String
   category    Category  @relation(fields: [category_id], references: [id], onDelete: Cascade)
   user_id     String?
