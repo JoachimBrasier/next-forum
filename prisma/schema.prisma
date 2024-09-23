@@ -101,7 +101,7 @@ model Tag {
 model Topic {
   id          String    @id @default(cuid())
   title       String
-  slug        String    @unique
+  slug        String
   tag_id      String?
   tag         Tag?      @relation(fields: [tag_id], references: [id], onDelete: SetNull)
   category_id String
@@ -109,6 +109,7 @@ model Topic {
   user_id     String?
   user        User?     @relation(fields: [user_id], references: [id], onDelete: SetNull)
   comments    Comment[]
+  content     String
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
 
