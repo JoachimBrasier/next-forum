@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { getTranslations } from 'next-intl/server';
 
-import { AuthModal } from '@/components/auth';
+import AuthModal from '@/components/auth/modal';
 import { LocalesMenu, ThemesMenu, UserMenu } from '@/components/layout';
 
 import { auth } from '@/lib/auth';
