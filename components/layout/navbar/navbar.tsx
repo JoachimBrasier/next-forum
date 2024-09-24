@@ -2,11 +2,14 @@ import clsx from 'clsx';
 import { getTranslations } from 'next-intl/server';
 
 import AuthModal from '@/components/auth/modal';
-import { LocalesMenu, ThemesMenu, UserMenu } from '@/components/layout';
+import { UserMenu } from '@/components/layout';
 
 import { auth } from '@/lib/auth';
 
 import { Link } from '@/i18n/routing';
+
+import LocalesMenu from '../locales-menu';
+import ThemesMenu from '../themes-menu';
 
 import s from './navbar.module.css';
 
