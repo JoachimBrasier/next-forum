@@ -6,6 +6,7 @@ import { getMessages } from 'next-intl/server';
 import { ThemeProvider } from 'next-themes';
 import { Toaster } from 'sonner';
 
+import PrelineScript from '@/components/common/preline-script';
 import { Footer, Navbar } from '@/components/layout';
 
 import './globals.css';
@@ -33,6 +34,7 @@ export default async function RootLayout({ children, params: { locale } }: { chi
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
+      <PrelineScript />
     </html>
   );
 }
