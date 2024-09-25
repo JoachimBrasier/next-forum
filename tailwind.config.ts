@@ -16,7 +16,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('@headlessui/tailwindcss'), require('preline/plugin')],
+  plugins: [require('preline/plugin')],
 };
 
 export default config;
