@@ -25,7 +25,7 @@ export default function NotFound() {
     <div className="maxScreenSize flex flex-col items-center justify-center py-10">
       <h2 className="font-semibold text-blue-600 text-xl">404</h2>
       <h3 className="text-gray-700 dark:text-white text-4xl font-bold mb-2">{t('title')}</h3>
-      <p className="text-gray-600 dark:text-gray-400 text-base font-normal mb-4">{t('description')}</p>
+      <p className="text-gray-600 dark:text-neutral-400 text-base font-normal mb-4">{t('description')}</p>
       <Link
         href="/"
         aria-label={t('homepageButton.description')}
