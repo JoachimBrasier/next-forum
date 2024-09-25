@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowLeftStartOnRectangleIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/outline';
+import { LogOut, Shield } from 'lucide-react';
 import { signOut } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 
@@ -33,7 +33,7 @@ export default function UserMenu() {
             aria-label={t('navbar.userMenu.menu.admin.description')}
             className="w-full flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
           >
-            <WrenchScrewdriverIcon className="shrink-0 size-4" />
+            <Shield className="shrink-0 size-4" />
             {t('navbar.userMenu.menu.admin.text')}
           </Link>
           <button
@@ -42,7 +42,7 @@ export default function UserMenu() {
             aria-label={t('navbar.userMenu.menu.signOut.description')}
             className="w-full flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
           >
-            <ArrowLeftStartOnRectangleIcon className="shrink-0 size-4" />
+            <LogOut className="shrink-0 size-4" />
             {t('navbar.userMenu.menu.signOut.text')}
           </button>
         </div>

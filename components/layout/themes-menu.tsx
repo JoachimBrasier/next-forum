@@ -1,7 +1,7 @@
 'use client';
 
 import { useIsMounted } from '@/hook/useIsMounted';
-import { Cog6ToothIcon, MoonIcon, SunIcon } from '@heroicons/react/24/outline';
+import { MonitorCog, Moon, Sun } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 
@@ -28,8 +28,8 @@ export default function ThemesMenu() {
         aria-expanded="false"
         aria-label={t('navbar.themesMenu.openButton.description')}
       >
-        {resolvedTheme === 'light' && <SunIcon className="shrink-0 size-5" />}
-        {resolvedTheme === 'dark' && <MoonIcon className="shrink-0 size-5" />}
+        {resolvedTheme === 'light' && <Sun className="shrink-0 size-5" />}
+        {resolvedTheme === 'dark' && <Moon className="shrink-0 size-5" />}
       </button>
       <div
         className="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden bg-white shadow-md rounded-lg mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
@@ -44,7 +44,7 @@ export default function ThemesMenu() {
             aria-label={t('navbar.themesMenu.menu.light.description')}
             className="w-full flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
           >
-            <SunIcon className="shrink-0 size-4" />
+            <Sun className="shrink-0 size-4" />
             {t('navbar.themesMenu.menu.light.text')}
           </button>
           <button
@@ -53,7 +53,7 @@ export default function ThemesMenu() {
             aria-label={t('navbar.themesMenu.menu.dark.description')}
             className="w-full flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
           >
-            <MoonIcon className="shrink-0 size-4" />
+            <Moon className="shrink-0 size-4" />
             {t('navbar.themesMenu.menu.dark.text')}
           </button>
           <button
@@ -62,7 +62,7 @@ export default function ThemesMenu() {
             aria-label={t('navbar.themesMenu.menu.system.description')}
             className="w-full flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
           >
-            <Cog6ToothIcon className="shrink-0 size-4" />
+            <MonitorCog className="shrink-0 size-4" />
             {t('navbar.themesMenu.menu.system.text')}
           </button>
         </div>
