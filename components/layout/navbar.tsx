@@ -15,9 +15,9 @@ export default async function Navbar() {
   const session = await auth();
 
   return (
-    <nav className="border-b py-2">
+    <nav className="py-2 border-b border-gray-200 dark:border-neutral-700">
       <div className="maxScreenSize flex flex-row flex-nowrap items-center gap-2">
-        <Link href="/" className="mr-auto">
+        <Link href="/" className="mr-auto text-gray-800 dark:text-white">
           {process.env?.NEXT_PUBLIC_SITE_NAME || 'Next-forum'}
         </Link>
         {session?.user ? <UserMenu /> : <AuthModal />}
