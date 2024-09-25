@@ -20,9 +20,9 @@ export default async function Navbar() {
         <Link href="/" className="mr-auto text-gray-800 dark:text-white">
           {process.env?.NEXT_PUBLIC_SITE_NAME || 'Next-forum'}
         </Link>
-        {session?.user ? <UserMenu /> : <AuthModal />}
         <LocalesMenu />
         <ThemesMenu />
+        {session?.user ? <UserMenu user={session?.user} /> : <AuthModal />}
       </div>
     </nav>
   );

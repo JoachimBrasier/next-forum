@@ -1,12 +1,17 @@
 'use client';
 
-import { LogOut, Shield } from 'lucide-react';
+import { ChevronDown, LogOut, Shield } from 'lucide-react';
+import { User } from 'next-auth';
 import { signOut } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 
 import { Link } from '@/i18n/routing';
 
-export default function UserMenu() {
+type Props = {
+  user?: User;
+};
+
+export default function UserMenu({ user }: Props) {
   const t = useTranslations('Layout');
 
   return (
@@ -19,7 +24,8 @@ export default function UserMenu() {
         aria-expanded="false"
         aria-label={t('navbar.userMenu.openButton.description')}
       >
-        {t('navbar.userMenu.openButton.text')}
+        {user?.name ?? t('navbar.userMenu.openButton.text')}
+        <ChevronDown className="shrink-0 size-5 hs-dropdown-open:rotate-180" />
       </button>
       <div
         className="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden bg-white shadow-md rounded-lg mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
