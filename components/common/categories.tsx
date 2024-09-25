@@ -2,8 +2,6 @@ import { prisma } from '@/lib/prisma';
 
 import { Link } from '@/i18n/routing';
 
-import s from './categories.module.css';
-
 type Props = {
   parentCategory?: string;
   section?: string;
@@ -23,11 +21,11 @@ export default async function Categories({ parentCategory, section }: Props) {
   });
 
   return (
-    <div className={s.root}>
+    <div className="divide-y divide-solid">
       {categories.map((category) => (
-        <div key={category.id} className={s.item}>
+        <div key={category.id} className="px-4 py-2">
           <div>
-            <Link href={`/category/${category.slug}`} className={s.title}>
+            <Link href={`/category/${category.slug}`} className="inline-block cursor-pointer text-sm hover:underline">
               {category.name}
             </Link>
           </div>

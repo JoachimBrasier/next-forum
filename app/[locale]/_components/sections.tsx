@@ -2,8 +2,6 @@ import { prisma } from '@/lib/prisma';
 
 import Item from './item';
 
-import s from './list.module.css';
-
 export default async function List() {
   const sections = await prisma.section.findMany({
     include: { _count: { select: { categories: true } } },
@@ -14,7 +12,7 @@ export default async function List() {
   }
 
   return (
-    <div className={s.root}>
+    <div className="flex flex-col gap-4 overflow-hidden">
       {sections.map((section) => (
         <Item key={section.id} data={section} />
       ))}

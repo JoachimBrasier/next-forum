@@ -3,8 +3,7 @@ import { notFound } from 'next/navigation';
 
 import { getTranslations } from 'next-intl/server';
 
-import { Categories } from '@/components/common';
-import { Button } from '@/components/ui';
+import Categories from '@/components/common/categories';
 
 import { prisma } from '@/lib/prisma';
 
