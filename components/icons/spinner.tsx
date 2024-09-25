@@ -2,7 +2,7 @@ import { SVGProps } from 'react';
 
 import clsx from 'clsx';
 
-export default function SpinnerIcon(props: SVGProps<SVGElement>) {
+export default function SpinnerIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" {...props} className={clsx('animate-spin', props?.className)}>
       <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" className="opacity-25" />
