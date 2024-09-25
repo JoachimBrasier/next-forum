@@ -7,14 +7,15 @@ import { ThemeProvider } from 'next-themes';
 import { Toaster } from 'sonner';
 
 import PrelineScript from '@/components/common/preline-script';
-import { Footer, Navbar } from '@/components/layout';
+import Footer from '@/components/layout/footer';
+import Navbar from '@/components/layout/navbar';
 
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Forum',
+  title: process.env?.NEXT_PUBLIC_SITE_NAME || 'Next-forum',
 };
 
 export default async function RootLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: string } }) {
