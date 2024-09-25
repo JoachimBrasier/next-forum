@@ -4,7 +4,6 @@ import { Section } from '@prisma/client';
 import clsx from 'clsx';
 
 import { Categories } from '@/components/common';
-import { Empty } from '@/components/ui';
 
 import s from './item.module.css';
 
@@ -15,11 +14,7 @@ export default memo(function Item({ data }: { data: Section }) {
         <h2 className={s.title}>{data.name}</h2>
       </div>
       <div className={clsx(s.body, { [s.bodyEmpty]: data._count.categories === 0 })}>
-        {data._count.categories === 0 ? (
-          <Empty text="This section is empty" />
-        ) : (
-          <Categories section={data.id} />
-        )}
+        {data._count.categories === 0 ? 'This section is empty' : <Categories section={data.id} />}
       </div>
     </div>
   );

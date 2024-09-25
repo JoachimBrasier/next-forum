@@ -56,15 +56,9 @@ export default async function Category({ params }: Props) {
         </div>
       )}
       <div className="flex flex-row flex-nowrap mb-4">
-        <Button
-          link
-          href={`/category/${category.slug}/new-topic`}
-          variant="primary"
-          className="ml-auto"
-          aria-label={t('category.newTopicButton.description')}
-        >
+        <Link href={`/category/${category.slug}/new-topic`} className="ml-auto" aria-label={t('category.newTopicButton.description')}>
           {t('category.newTopicButton.text')}
-        </Button>
+        </Link>
       </div>
       <div className="border rounded-md overflow-hidden divide-y divide-solid">
         <h3 className="text-base font-semibold p-2 bg-gray-100">Pinned topics</h3>

@@ -1,5 +1,3 @@
-import { Empty } from '@/components/ui';
-
 import { prisma } from '@/lib/prisma';
 
 import Item from './item';
@@ -12,7 +10,7 @@ export default async function List() {
   });
 
   if (!sections.length) {
-    return <Empty />;
+    return 'Empty';
   }
 
   return (
