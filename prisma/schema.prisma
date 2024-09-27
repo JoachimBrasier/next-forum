@@ -14,6 +14,11 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
+enum TopicStatus {
+  DRAFTED
+  PUBLISHED
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -100,19 +105,22 @@ model Tag {
 }
 
 model Topic {
-  id          String    @id @default(cuid())
-  title       String
-  slug        String
-  tag_id      String?
-  tag         Tag?      @relation(fields: [tag_id], references: [id], onDelete: SetNull)
-  category_id String
-  category    Category  @relation(fields: [category_id], references: [id], onDelete: Cascade)
-  user_id     String?
-  user        User?     @relation(fields: [user_id], references: [id], onDelete: SetNull)
-  comments    Comment[]
-  content     String
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
+  id           String      @id @default(cuid())
+  title        String
+  slug         String
+  status       TopicStatus @default(DRAFTED)
+  tag_id       String?
+  tag          Tag?        @relation(fields: [tag_id], references: [id], onDelete: SetNull)
+  category_id  String
+  category     Category    @relation(fields: [category_id], references: [id], onDelete: Cascade)
+  user_id      String?
+  user         User?       @relation(fields: [user_id], references: [id], onDelete: SetNull)
+  comments     Comment[]
+  content      String
+  views        Int         @default(0)
+  published_at DateTime?
+  created_at   DateTime    @default(now())
+  updated_at   DateTime    @default(now())
 
   @@map("topics")
 }
