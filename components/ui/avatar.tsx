@@ -90,7 +90,7 @@ export default memo(function Avatar({ image, fallbackText, fallbackMode, size, c
             setUseFallback(true);
             setUsePlaceholder(false);
           }}
-          onLoadingComplete={() => {
+          onLoad={() => {
             setUsePlaceholder(false);
           }}
         />
