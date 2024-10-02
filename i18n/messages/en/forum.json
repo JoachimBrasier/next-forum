@@ -1,9 +1,20 @@
 {
   "section": {},
   "category": {
+    "subCategories": "Subcategories",
     "newTopicButton": {
       "text": "New topic",
       "description": "New topic"
+    },
+    "topicTable": {
+      "columns": {
+        "topic": "Topic",
+        "comments": "Comments",
+        "views": "Views"
+      },
+      "item": {
+        "authorTooltip": "Author"
+      }
     }
   },
   "topic": {
