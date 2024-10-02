@@ -89,14 +89,14 @@ export default async function Category({ params }: Props) {
               <table className="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
                 <thead className="bg-gray-50 dark:bg-neutral-700">
                   <tr>
-                    <th scope="col" className="w-full p-3 text-start text-sm font-medium text-gray-500 dark:text-neutral-500">
+                    <th scope="col" className="w-full p-3 text-start text-sm font-medium text-gray-500 dark:text-neutral-400">
                       {t('category.topicTable.columns.topic')}
                     </th>
-                    <th scope="col" align="center" className="p-3 text-center text-sm font-medium text-gray-500 dark:text-neutral-500" />
-                    <th scope="col" align="center" className="p-3 text-center text-sm font-medium text-gray-500 dark:text-neutral-500">
+                    <th scope="col" align="center" className="p-3 text-center text-sm font-medium text-gray-500 dark:text-neutral-400" />
+                    <th scope="col" align="center" className="p-3 text-center text-sm font-medium text-gray-500 dark:text-neutral-400">
                       {t('category.topicTable.columns.comments')}
                     </th>
-                    <th scope="col" align="center" className="p-3 text-center text-sm font-medium text-gray-500 dark:text-neutral-500">
+                    <th scope="col" align="center" className="p-3 text-center text-sm font-medium text-gray-500 dark:text-neutral-400">
                       {t('category.topicTable.columns.views')}
                     </th>
                   </tr>
