@@ -7,8 +7,6 @@ import { ThemeProvider } from 'next-themes';
 import { Toaster } from 'sonner';
 
 import PrelineScript from '@/components/common/preline-script';
-import Footer from '@/components/layout/footer';
-import Navbar from '@/components/layout/navbar';
 
 import './globals.css';
 
@@ -26,12 +24,8 @@ export default async function RootLayout({ children, params: { locale } }: { chi
       <body className={inter.className}>
         <ThemeProvider defaultTheme={process.env.NEXT_PUBLIC_DEFAULT_THEME ?? 'system'} attribute="class">
           <NextIntlClientProvider messages={messages}>
-            <Navbar />
-            <main>
-              {children}
-              <Toaster richColors />
-            </main>
-            <Footer />
+            {children}
+            <Toaster richColors />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
