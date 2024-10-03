@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import { Fragment, memo, useState } from 'react';
+import { memo, useState } from 'react';
 
 import clsx from 'clsx';
 import { User } from 'lucide-react';
@@ -73,13 +73,13 @@ export default memo(function Avatar({ image, fallbackText, fallbackMode, size, c
       )}
     >
       {!image || useFallback ? (
-        <Fragment>
+        <>
           {fallbackMode === 'text' && !!fallbackText ? (
             fallbackText.charAt(0).toUpperCase()
           ) : (
             <User className={clsx('size-full fill-gray-400 text-gray-400 dark:text-neutral-500 dark:fill-neutral-500', definedSize.icon)} />
           )}
-        </Fragment>
+        </>
       ) : (
         <Image
           alt=""
