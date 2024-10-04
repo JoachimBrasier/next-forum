@@ -10,13 +10,20 @@ import PrelineScript from '@/components/common/preline-script';
 
 import './globals.css';
 
+type Props = {
+  children: React.ReactNode;
+  params: {
+    locale: string;
+  };
+};
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: process.env?.NEXT_PUBLIC_SITE_NAME || 'Next-forum',
 };
 
-export default async function RootLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: string } }) {
+export default async function RootLayout({ children, params: { locale } }: Props) {
   const messages = await getMessages();
 
   return (
