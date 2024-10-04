@@ -25,7 +25,7 @@ export default async function Categories({ parentCategory, section }: Props) {
       {categories.map((category) => (
         <div key={category.id} className="px-4 py-2">
           <div>
-            <Link href={`/category/${category.slug}`} className="inline-block cursor-pointer text-sm hover:underline">
+            <Link prefetch href={`/category/${category.slug}`} className="inline-block cursor-pointer text-sm hover:underline">
               {category.name}
             </Link>
           </div>

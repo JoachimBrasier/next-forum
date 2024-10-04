@@ -23,7 +23,9 @@ export default memo(function TopicItem({ topic }: Props) {
             {topic.tag.name}
           </span>
         )}
-        <Link href={`/topic/${topic.id}/${topic.slug}`}>{topic.title}</Link>
+        <Link prefetch href={`/topic/${topic.id}/${topic.slug}`}>
+          {topic.title}
+        </Link>
       </td>
       <td className="p-3 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
         <div className="flex -space-x-2 flex-shrink-0">
