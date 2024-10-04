@@ -29,24 +29,24 @@ const sizes = {
     container: 'text-lg size-10',
     icon: 'h-6 w-6',
     image: {
-      width: 38,
-      height: 38,
+      width: 40,
+      height: 40,
     },
   },
   lg: {
     container: 'text-xl size-12',
     icon: 'h-8 w-8',
     image: {
-      width: 46,
-      height: 46,
+      width: 48,
+      height: 48,
     },
   },
   xl: {
     container: 'text-2xl size-16',
     icon: 'h-10 w-10',
     image: {
-      width: 62,
-      height: 62,
+      width: 64,
+      height: 64,
     },
   },
 };
