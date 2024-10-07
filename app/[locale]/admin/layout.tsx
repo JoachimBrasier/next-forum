@@ -4,6 +4,8 @@ import Breadcrumb from './_components/breadcrumb';
 import Navbar from './_components/navbar';
 import Sidebar from './_components/sidebar';
 
+import './globals.css';
+
 type Props = {
   children: React.ReactNode;
 };
