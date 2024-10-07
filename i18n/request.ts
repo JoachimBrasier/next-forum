@@ -3,12 +3,19 @@ import { notFound } from 'next/navigation';
 import merge from 'deepmerge';
 import { getRequestConfig } from 'next-intl/server';
 
-import { files } from '@/i18n/constants';
+import { files, locales } from '@/i18n/constants';
 import { routing } from '@/i18n/routing';
 
 const getMessages = async (locale: string): Promise<any> => {
   const messages: Record<string, object> = {};
+  const localeItem = locales.find((localeItem) => localeItem.locale === locale);
 
+  // Get pagination locale
+  if (localeItem?.pagination) {
+    messages['Pagination'] = (await import(`rc-pagination/lib/locale/${localeItem.pagination}.js`)).default;
+  }
+
+  // Get JSON files
   for (let i = 0; i < files.length; i++) {
     const { key, file } = files[i];
 
