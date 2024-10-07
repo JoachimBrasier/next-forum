@@ -67,7 +67,7 @@ export default memo(function Avatar({ image, fallbackText, fallbackMode, size, c
   return (
     <div
       className={clsx(
-        'inline-flex items-center justify-center font-semibold leading-non bg-gray-100 rounded-full overflow-hidden text-gray-800  dark:bg-neutral-700 dark:text-white',
+        'flex items-center justify-center font-semibold leading-non bg-gray-100 rounded-full overflow-hidden text-gray-800  dark:bg-neutral-700 dark:text-white',
         definedSize.container,
         className,
         { ['animate-pulse']: usePlaceholder },
