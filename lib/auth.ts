@@ -4,12 +4,6 @@ import Google from 'next-auth/providers/google';
 
 import { prisma } from '@/lib/prisma';
 
-declare module '@auth/core/jwt' {
-  interface JWT {
-    id?: string;
-  }
-}
-
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
   providers: [Google],
