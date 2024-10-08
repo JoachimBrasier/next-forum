@@ -1,3 +1,6 @@
+import LocalesMenu from '@/components/layout/locales-menu';
+import ThemesMenu from '@/components/layout/themes-menu';
+
 import { Link } from '@/i18n/routing';
 
 export default function Navbar() {
@@ -11,6 +14,8 @@ export default function Navbar() {
         </div>
         <div className="w-full flex items-center justify-end ms-auto gap-x-1 md:gap-x-3">
           <div className="flex flex-row items-center justify-end gap-1">
+            <LocalesMenu />
+            <ThemesMenu />
             <div className="hs-dropdown [--placement:bottom-right] relative inline-flex">
               <button
                 id="hs-dropdown-account"
