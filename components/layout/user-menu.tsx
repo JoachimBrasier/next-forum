@@ -1,9 +1,11 @@
 'use client';
 
-import { ChevronDown, LogOut, Shield } from 'lucide-react';
+import { LogOut, Shield } from 'lucide-react';
 import { User } from 'next-auth';
 import { signOut } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
+
+import Avatar from '@/components/ui/avatar';
 
 import { Link } from '@/i18n/routing';
 
@@ -19,13 +21,12 @@ export default function UserMenu({ user }: Props) {
       <button
         id="user-dropdown"
         type="button"
-        className="hs-dropdown-toggle py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+        className="hs-dropdown-toggle inline-flex items-center focus:outline-none"
         aria-haspopup="menu"
         aria-expanded="false"
         aria-label={t('navbar.userMenu.openButton.description')}
       >
-        {user?.name ?? t('navbar.userMenu.openButton.text')}
-        <ChevronDown className="shrink-0 size-5 hs-dropdown-open:rotate-180" />
+        <Avatar image={user?.image} fallbackText={user?.name} fallbackMode="text" size="sm" />
       </button>
       <div
         className="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden bg-white shadow-md rounded-lg mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
@@ -33,6 +34,10 @@ export default function UserMenu({ user }: Props) {
         aria-orientation="vertical"
         aria-labelledby="user-dropdown"
       >
+        <div className="py-3 pl-5 pr-10 bg-gray-100 rounded-t-lg dark:bg-neutral-700">
+          <p className="text-sm text-gray-500 dark:text-neutral-500">{t('navbar.userMenu.menu.SignedAs')}</p>
+          <p className="text-sm font-medium text-gray-800 dark:text-neutral-200">{user?.name}</p>
+        </div>
         <div className="p-1 space-y-0.5">
           <Link
             href="/admin"

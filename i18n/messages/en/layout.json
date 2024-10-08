@@ -55,6 +55,7 @@
         "description": "Open user menu"
       },
       "menu": {
+        "SignedAs": "Signed in as",
         "admin": {
           "text": "Admin panel",
           "description": "Go to admin panel"
